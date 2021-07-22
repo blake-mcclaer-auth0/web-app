@@ -33,7 +33,6 @@ app.use(
   session({
     secret: SESSION_SECRET,
     resave: false,
-    authRequired: false, //globally make authentication optional.
     saveUninitialized: true,
   })
 );
@@ -42,6 +41,7 @@ app.use(
 app.use(
   auth({
     secret: SESSION_SECRET,
+    authRequired: false, //globally make authentication optional.    
     auth0Logout: true,
     baseURL: APP_URL
   })
