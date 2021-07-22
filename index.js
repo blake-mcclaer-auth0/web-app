@@ -37,7 +37,14 @@ app.use(
   })
 );
 
-// 👉 Replace this with auth middleware 👈
+//this section of code is instructing the application to use the OIDC authentication middleware.
+app.use(
+  auth({
+    secret: SESSION_SECRET,
+    auth0Logout: true,
+    baseURL: APP_URL
+  })
+  );
 
 const expenses = [
   {
